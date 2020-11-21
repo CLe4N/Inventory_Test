@@ -9,12 +9,12 @@ public class Spawn : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player = GameObject.FindGameObjectWithTag("Player").transform; // find gameobject with tag "Player"
     }
 
     public void SpawnDroppedItem()
     {
-        Vector2 playerPos = new Vector2(Player.position.x, Player.position.y + 2);
-        Instantiate(item, playerPos, Quaternion.identity);
+        Vector2 playerPos = new Vector2(Player.position.x, Player.position.y + 2); // get player position
+        Instantiate(item, playerPos, Quaternion.identity); // create prefab item on player position
     }
 }
