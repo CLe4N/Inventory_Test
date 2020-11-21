@@ -10,12 +10,11 @@ public class Move : MonoBehaviour
     [SerializeField] float speed;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // access Rigidbody2D , SpriteRenderer , Animator component
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         move();
@@ -24,26 +23,26 @@ public class Move : MonoBehaviour
     void move()
     {
         float Xaxis, Yaxis;
-        Xaxis = Input.GetAxisRaw("Horizontal");
-        Yaxis = Input.GetAxisRaw("Vertical");
+        Xaxis = Input.GetAxisRaw("Horizontal"); // get axis input "Horizontal"
+        Yaxis = Input.GetAxisRaw("Vertical"); // get axis input "Vertical"
 
-        if (Xaxis != 0 || Yaxis != 0)
+        if (Xaxis != 0 || Yaxis != 0) // if Xaxis and Yaxis is not equal 0
         {
-            rb.velocity = new Vector2(Xaxis * speed, Yaxis * speed);
-            anim.SetBool("Walk", true);
-            if(Xaxis > 0)
+            rb.velocity = new Vector2(Xaxis * speed, Yaxis * speed); // velocity = axis inpput
+            anim.SetBool("Walk", true); // play animation Walk
+            if(Xaxis > 0) // if Xaxis > 0
             {
-                sr.flipX = false;
+                sr.flipX = false; // flip sprite on x axis
             }
-            if(Xaxis < 0)
+            if(Xaxis < 0) // if Xaxis < 0
             {
-                sr.flipX = true;
+                sr.flipX = true; // cancel flip
             }
         }
         else
         {
-            rb.velocity = Vector2.zero;
-            anim.SetBool("Walk", false);
+            rb.velocity = Vector2.zero; // velocity = 0
+            anim.SetBool("Walk", false); // stop animation Walk
         }
     }
 }
