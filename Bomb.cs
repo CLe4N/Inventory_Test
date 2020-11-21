@@ -10,23 +10,23 @@ public class Bomb : MonoBehaviour
     HP_Con hp;
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
-        hp = GameObject.Find("HPtext").GetComponent<HP_Con>();
+        Player = GameObject.FindGameObjectWithTag("Player").transform; // find gameobject with tag "Player" and access transform
+        hp = GameObject.Find("HPtext").GetComponent<HP_Con>(); // find "HPtext" and access HP_Con component
     }
 
     // Update is called once per frame
     public void BombEffect()
     {
-        if (Effect != null)
+        if (Effect != null) // if effect is not empty
         {
-            hp.HP_Point -= 1;
-            Instantiate(Effect, Player.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            hp.HP_Point -= 1; // HP_Point is decrease by 1
+            Instantiate(Effect, Player.position, Quaternion.identity); // create prefab Effect 
+            Destroy(this.gameObject); // destroy this game object
         }
     }
 
     public void DestroyThis()
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject); // detroy this gameobject
     }
 }
