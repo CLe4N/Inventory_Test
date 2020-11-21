@@ -10,10 +10,10 @@ public class HP_Con : MonoBehaviour
 
     private void Start()
     {
-        HP_Text = GetComponent<Text>();
+        HP_Text = GetComponent<Text>(); // access Text component 
     }
     void Update()
     {
-        HP_Text.text = HP_Point.ToString();
+        HP_Text.text = HP_Point.ToString(); // change text = HP_point
     }
 }
