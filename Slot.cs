@@ -9,23 +9,23 @@ public class Slot : MonoBehaviour
 
     private void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>(); // find gameobject with tag "Player"
     }
 
     private void Update()
     {
-        if(transform.childCount <= 0)
+        if(transform.childCount <= 0) // if child number is less or equal 0
         {
-            inventory.isFull[i] = false;
+            inventory.isFull[i] = false; // isFull[i] = false
         }
     }
 
     public void dropItem()
     {
-        foreach(Transform child in transform)
+        foreach(Transform child in transform) // loop by child number
         {
-            child.GetComponent<Spawn>().SpawnDroppedItem();
-            GameObject.Destroy(child.gameObject) ;
+            child.GetComponent<Spawn>().SpawnDroppedItem(); // access Spawn component and call method SpawnDroppedItem
+            GameObject.Destroy(child.gameObject) ; // destroy child object
         }
     }
 }
